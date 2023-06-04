@@ -1,0 +1,17 @@
+{
+  "name": "ark-tool",
+  "version": "0.0.1",
+  "description": "方舟工具",
+  "main": "src/index.js",
+  "author": {
+    "name": "laozhi",
+    "email": "1003314741@qq.com"
+  },
+  "scripts": {
+    "start": "chcp 65001 && electron .",
+    "packager": "npx electron-packager --electron-version=20.1.0 ./ 方舟工具 --win=x32 --overwrite --icon=src/favicon.ico --asar"
+  },
+  "devDependencies": {
+    "electron-packager": "^16.0.0"
+  }
+}

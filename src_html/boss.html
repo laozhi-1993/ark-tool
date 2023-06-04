@@ -1,0 +1,3713 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<style>
+			body {
+				margin: 0;
+				padding: 50px 50px 80px 50px;
+			}
+			*::-webkit-scrollbar {
+				width:  5px;
+				height: 5px;
+			}
+			*::-webkit-scrollbar-track {
+				border-radius:    5px;
+				background-color: #0F0F0;
+			}
+			*::-webkit-scrollbar-thumb {
+				border-radius:    5px;
+				background-color: #CCCCCC;
+			}
+			.tab {
+				font-size: 0;
+				margin-bottom: 30px;
+				user-select: none;
+			}
+			.tab .region {
+				position: relative;
+				display: inline-block;
+				width: 8.33%;
+			}
+			.tab .region span:nth-child(1) {
+				margin: 0 2.5px;
+				display: block;
+				height: 35px;
+				line-height: 35px;
+				font-size: 16px;
+				text-align: center;
+				cursor: pointer;
+				color: #FFFFFF;
+				background-color: #2932E1;
+				border-radius: 5px;
+			}
+			.tab .region span:nth-child(2) {
+				display: none;
+			}
+			.tab .xz span:nth-child(2) {
+				position: absolute;
+				left: 2.5px;
+				bottom: -5px;
+				display: block;
+				width: calc(100% - 5px);
+				height: 2px;
+				background-color: #2932E1;
+			}
+			.copy {
+				display: inline-block;
+				cursor: pointer;
+			}
+			.copy span:nth-child(2) {
+				display: none;
+			}
+			fieldset {
+				display: none;
+				margin-bottom: 30px;
+				padding: 50px;
+				background-color: #FFFFFF;
+				border: 2px solid #4682b4;
+				border-radius: 10px;
+			}
+			fieldset legend {
+				font-size: x-large;
+				text-align: center;
+				padding: 0 5px;
+				color: #4682b4;
+			}
+			.beautiful-table {
+				margin-top: 10px;
+				width: 100%;
+				font-family: Arial, sans-serif;
+				overflow: hidden;
+				border-collapse: collapse;
+			}
+
+			.beautiful-table caption {
+				font-size: 24px;
+				font-weight: bold;
+				text-align: center;
+				padding: 10px;
+				color: #333;
+			}
+
+			.beautiful-table thead th {
+				background-color: #008C8C;
+				color: #FFFFFF;
+				font-weight: bold;
+				padding: 10px;
+				border: 1px solid #ddd;
+			}
+
+			.beautiful-table tbody td {
+				padding: 10px;
+				border: 1px solid #ddd;
+				text-align: right;
+			}
+			
+			.beautiful-table tbody tr:nth-child(even) {
+				background-color: #EEEEEE;
+			}
+			
+			.beautiful-table tbody tr:nth-child(odd) {
+				background-color: #ffffff;
+			}
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			function copyToClipboard(text)
+			{
+				const input = document.createElement('textarea');
+				input.value = text;
+				document.body.appendChild(input);
+				input.select();
+				document.execCommand('copy');
+				document.body.removeChild(input);
+			}
+			function copy(thiss,type)
+			{
+				if(type == 1)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 2)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 5 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 3)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 4)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 5)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Theriz.PrimalItemResource_ApexDrop_Theriz'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 5 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 6)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Theriz.PrimalItemResource_ApexDrop_Theriz'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 7)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 8)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Giga.PrimalItemResource_ApexDrop_Giga'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Allo.PrimalItemResource_ApexDrop_Allo'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilo.PrimalItemResource_ApexDrop_Basilo'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Yuty.PrimalItemResource_ApexDrop_Yuty'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Rex.PrimalItemResource_ApexDrop_Rex'" 5 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 9)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Giga.PrimalItemResource_ApexDrop_Giga'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Allo.PrimalItemResource_ApexDrop_Allo'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilo.PrimalItemResource_ApexDrop_Basilo'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Yuty.PrimalItemResource_ApexDrop_Yuty'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Rex.PrimalItemResource_ApexDrop_Rex'" 15 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 10)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Broodmother_Gamma.PrimalItemTrophy_Broodmother_Gamma'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Gorilla_Gamma.PrimalItemTrophy_Gorilla_Gamma'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Dragon_Gamma.PrimalItemTrophy_Dragon_Gamma'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 11)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Broodmother_Beta.PrimalItemTrophy_Broodmother_Beta'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Gorilla_Beta.PrimalItemTrophy_Gorilla_Beta'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Dragon_Beta.PrimalItemTrophy_Dragon_Beta'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRaptor.PrimalItemResource_ApexDrop_AlphaRaptor'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaCarno.PrimalItemResource_ApexDrop_AlphaCarno'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRex.PrimalItemResource_ApexDrop_AlphaRex'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 12)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Broodmother_Alpha.PrimalItemTrophy_Broodmother_Alpha'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Gorilla_Alpha.PrimalItemTrophy_Gorilla_Alpha'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Dragon_Alpha.PrimalItemTrophy_Dragon_Alpha'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRaptor.PrimalItemResource_ApexDrop_AlphaRaptor'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaCarno.PrimalItemResource_ApexDrop_AlphaCarno'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRex.PrimalItemResource_ApexDrop_AlphaRex'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaMegalodon.PrimalItemResource_ApexDrop_AlphaMegalodon'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaMosasaur.PrimalItemResource_ApexDrop_AlphaMosasaur'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaTuso.PrimalItemResource_ApexDrop_AlphaTuso'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaLeeds.PrimalItemResource_ApexDrop_AlphaLeeds'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 13)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_01.PrimalItemArtifactSE_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_02.PrimalItemArtifactSE_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_03.PrimalItemArtifactSE_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_FireWyvern.PrimalItemResource_ApexDrop_FireWyvern'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_LightningWyvern.PrimalItemResource_ApexDrop_LightningWyvern'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_PoisonWyvern.PrimalItemResource_ApexDrop_PoisonWyvern'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 14)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_01.PrimalItemArtifactSE_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_02.PrimalItemArtifactSE_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_03.PrimalItemArtifactSE_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_FireWyvern.PrimalItemResource_ApexDrop_FireWyvern'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_LightningWyvern.PrimalItemResource_ApexDrop_LightningWyvern'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_PoisonWyvern.PrimalItemResource_ApexDrop_PoisonWyvern'" 2 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 15)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_01.PrimalItemArtifactSE_01'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_02.PrimalItemArtifactSE_02'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_03.PrimalItemArtifactSE_03'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_FireWyvern.PrimalItemResource_ApexDrop_FireWyvern'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_LightningWyvern.PrimalItemResource_ApexDrop_LightningWyvern'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_PoisonWyvern.PrimalItemResource_ApexDrop_PoisonWyvern'" 20 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 16)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB.PrimalItemArtifactAB'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_2.PrimalItemArtifactAB_2'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_3.PrimalItemArtifactAB_3'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 17)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB.PrimalItemArtifactAB'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_2.PrimalItemArtifactAB_2'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_3.PrimalItemArtifactAB_3'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilisk.PrimalItemResource_ApexDrop_Basilisk'" 4 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemConsumable_NamelessVenom.PrimalItemConsumable_NamelessVenom'" 12 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_XenomorphPheromoneGland.PrimalItemResource_XenomorphPheromoneGland'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_RockDrake.PrimalItemResource_ApexDrop_RockDrake'" 2 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 18)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB.PrimalItemArtifactAB'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_2.PrimalItemArtifactAB_2'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_3.PrimalItemArtifactAB_3'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilisk.PrimalItemResource_ApexDrop_Basilisk'" 8 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemConsumable_NamelessVenom.PrimalItemConsumable_NamelessVenom'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_XenomorphPheromoneGland.PrimalItemResource_XenomorphPheromoneGland'" 7 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_RockDrake.PrimalItemResource_ApexDrop_RockDrake'" 7 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilisk_Alpha.PrimalItemResource_ApexDrop_Basilisk_Alpha'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_CrabClaw.PrimalItemResource_ApexDrop_CrabClaw'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_ReaperBarb.PrimalItemResource_ApexDrop_ReaperBarb'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 19)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_Extinction_DesertKaiju.PrimalItemArtifact_Extinction_DesertKaiju'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_FireWyvern.PrimalItemResource_ApexDrop_FireWyvern'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 20)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_Extinction_IceKaiju.PrimalItemArtifact_Extinction_IceKaiju'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Theriz.PrimalItemResource_ApexDrop_Theriz'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 21)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_Extinction_ForestKaiju.PrimalItemArtifact_Extinction_ForestKaiju'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Rex.PrimalItemResource_ApexDrop_Rex'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 22)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Ice.PrimalItemTrophy_Kaiju_Ice'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Forest.PrimalItemTrophy_Kaiju_Forest'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Desert.PrimalItemTrophy_Kaiju_Desert'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 50 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRex.PrimalItemResource_ApexDrop_AlphaRex'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 23)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Ice.PrimalItemTrophy_Kaiju_Ice'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Forest.PrimalItemTrophy_Kaiju_Forest'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Desert.PrimalItemTrophy_Kaiju_Desert'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_King_Gamma.PrimalItemTrophy_Kaiju_King_Gamma'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRex.PrimalItemResource_ApexDrop_AlphaRex'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 24)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Ice.PrimalItemTrophy_Kaiju_Ice'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Forest.PrimalItemTrophy_Kaiju_Forest'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_Desert.PrimalItemTrophy_Kaiju_Desert'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Trophies/PrimalItemTrophy_Kaiju_King_Beta.PrimalItemTrophy_Kaiju_King_Beta'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Extinction/CoreBlueprints/Resources/PrimalItemResource_RareDrop_CorruptHeart.PrimalItemResource_RareDrop_CorruptHeart'" 100 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_AlphaRex.PrimalItemResource_ApexDrop_AlphaRex'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Giga.PrimalItemResource_ApexDrop_Giga'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 20 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 25)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 26)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilo.PrimalItemResource_ApexDrop_Basilo'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 27)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilo.PrimalItemResource_ApexDrop_Basilo'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 25 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 28)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_04.PrimalItemArtifact_04'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 29)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_04.PrimalItemArtifact_04'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilo.PrimalItemResource_ApexDrop_Basilo'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 30)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_04.PrimalItemArtifact_04'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilo.PrimalItemResource_ApexDrop_Basilo'" 25 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 25 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 31)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Allo.PrimalItemResource_ApexDrop_Allo'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 5 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 32)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Allo.PrimalItemResource_ApexDrop_Allo'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 8 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 8 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 8 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Rex.PrimalItemResource_ApexDrop_Rex'" 10 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 33)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_01.PrimalItemArtifactSE_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_02.PrimalItemArtifactSE_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_03.PrimalItemArtifactSE_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Allo.PrimalItemResource_ApexDrop_Allo'" 15 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 15 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Giga.PrimalItemResource_ApexDrop_Giga'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Rex.PrimalItemResource_ApexDrop_Rex'" 15 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 34)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_04.PrimalItemArtifact_04'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalResources/Primal/PrimalItemResource_Crystal_IslesPrimal.PrimalItemResource_Crystal_IslesPrimal'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/PrimalItemResource_ApexDrop_CrystalWyvern.PrimalItemResource_ApexDrop_CrystalWyvern'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/Mega/PrimalItemResource_ApexDrop_AlphaCrystalWyvern.PrimalItemResource_ApexDrop_AlphaCrystalWyvern'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 35)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_05.PrimalItemArtifact_05'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB.PrimalItemArtifactAB'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalResources/Primal/PrimalItemResource_Crystal_IslesPrimal.PrimalItemResource_Crystal_IslesPrimal'" 20 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/PrimalItemResource_ApexDrop_CrystalWyvern.PrimalItemResource_ApexDrop_CrystalWyvern'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/Mega/PrimalItemResource_ApexDrop_AlphaCrystalWyvern.PrimalItemResource_ApexDrop_AlphaCrystalWyvern'" 3 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 36)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_2.PrimalItemArtifactAB_2'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_3.PrimalItemArtifactAB_3'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactAB_4.PrimalItemArtifactAB_4'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_02.PrimalItemArtifactSE_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_03.PrimalItemArtifactSE_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifactSE_01.PrimalItemArtifactSE_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalResources/Primal/PrimalItemResource_Crystal_IslesPrimal.PrimalItemResource_Crystal_IslesPrimal'" 30 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/PrimalItemResource_ApexDrop_CrystalWyvern.PrimalItemResource_ApexDrop_CrystalWyvern'" 15 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/Mega/PrimalItemResource_ApexDrop_AlphaCrystalWyvern.PrimalItemResource_ApexDrop_AlphaCrystalWyvern'" 5 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 37)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_02.PrimalItemArtifact_02'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_06.PrimalItemArtifact_06'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_11.PrimalItemArtifact_11'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sarco.PrimalItemResource_ApexDrop_Sarco'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Boa.PrimalItemResource_ApexDrop_Boa'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Argentavis.PrimalItemResource_ApexDrop_Argentavis'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Allo.PrimalItemResource_ApexDrop_Allo'" 3 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Theriz.PrimalItemResource_ApexDrop_Theriz'" 3 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 38)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_08.PrimalItemArtifact_08'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_09.PrimalItemArtifact_09'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_12.PrimalItemArtifact_12'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilisk.PrimalItemResource_ApexDrop_Basilisk'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Sauro.PrimalItemResource_ApexDrop_Sauro'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Thylaco.PrimalItemResource_ApexDrop_Thylaco'" 5 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 39)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_01.PrimalItemArtifact_01'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_07.PrimalItemArtifact_07'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_03.PrimalItemArtifact_03'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Artifacts/PrimalItemArtifact_04.PrimalItemArtifact_04'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalodon.PrimalItemResource_ApexDrop_Megalodon'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Spino.PrimalItemResource_ApexDrop_Spino'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/Aberration/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Basilisk.PrimalItemResource_ApexDrop_Basilisk'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Rex.PrimalItemResource_ApexDrop_Rex'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Theriz.PrimalItemResource_ApexDrop_Theriz'" 5 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Yuty.PrimalItemResource_ApexDrop_Yuty'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Megalania.PrimalItemResource_ApexDrop_Megalania'" 10 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Tuso.PrimalItemResource_ApexDrop_Tuso'" 2 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ApexDrop_Giga.PrimalItemResource_ApexDrop_Giga'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 40)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Broodmother_Gamma.PrimalItemTrophy_Broodmother_Gamma'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Gorilla_Gamma.PrimalItemTrophy_Gorilla_Gamma'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Dragon_Gamma.PrimalItemTrophy_Dragon_Gamma'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 41)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Broodmother_Beta.PrimalItemTrophy_Broodmother_Beta'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Gorilla_Beta.PrimalItemTrophy_Gorilla_Beta'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Dragon_Beta.PrimalItemTrophy_Dragon_Beta'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				if(type == 42)
+				{
+					var arr = [];
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Broodmother_Alpha.PrimalItemTrophy_Broodmother_Alpha'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Gorilla_Alpha.PrimalItemTrophy_Gorilla_Alpha'" 1 100 0`);
+					arr.push(`cheat giveitem "Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/Trophies/PrimalItemTrophy_Dragon_Alpha.PrimalItemTrophy_Dragon_Alpha'" 1 100 0`);
+					copyToClipboard(arr.join(" | "));
+				}
+				
+				
+				$(thiss).find("span:nth-child(1)").hide();
+				$(thiss).find("span:nth-child(2)").show();
+				
+				
+				setTimeout(function (){
+					$(thiss).find("span:nth-child(2)").hide();
+					$(thiss).find("span:nth-child(1)").show();
+				},2000);
+			}
+			function tab(thiss,id) {
+				$(".tab .region").removeClass("xz");
+				$(thiss).addClass("xz");
+				$("fieldset").hide();
+				$(id).show();
+			}
+			$(function (){
+				$(".tab .region:nth-child(1)").trigger("click");
+			});
+		</script>
+	</head>
+	<body>
+		<div class="tab">
+			<div class="region" onclick="tab(this,'#map01')">
+				<span>孤岛</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map02')">
+				<span>焦土</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map03')">
+				<span>畸变</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map04')">
+				<span>灭绝</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map05')">
+				<span>创一</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map06')">
+				<span>创二</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map07')">
+				<span>中心</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map08')">
+				<span>仙境</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map09')">
+				<span>瓦尔</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map10')">
+				<span>水晶</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map11')">
+				<span>迷失</span>
+				<span></span>
+			</div>
+			<div class="region" onclick="tab(this,'#map12')">
+				<span>维京</span>
+				<span></span>
+			</div>
+		</div>
+		<fieldset id="map01">
+			<legend>孤岛 (The Island)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td><center>简单</center></td>
+						<td><center>324000</center></td>
+						<td>30</td>
+						<td>育母蜘蛛战利品 (简单) 能量元素x20&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td><center>中等</center></td>
+						<td><center>648000</center></td>
+						<td>50</td>
+						<td>育母蜘蛛战利品 (中等) 能量元素x56&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td><center>困难</center></td>
+						<td><center>972000</center></td>
+						<td>70</td>
+						<td>育母蜘蛛战利品 (困难) 能量元素x148</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td><center>简单</center></td>
+						<td><center>180000</center></td>
+						<td>45</td>
+						<td>银背金刚战利品 (简单) 能量元素x40&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td><center>中等</center></td>
+						<td><center>396000</center></td>
+						<td>65</td>
+						<td>银背金刚战利品 (中等) 能量元素x110</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td><center>困难</center></td>
+						<td><center>540000</center></td>
+						<td>85</td>
+						<td>银背金刚战利品 (简单) 能量元素x220</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td><center>简单</center></td>
+						<td><center>432000</center></td>
+						<td>55</td>
+						<td>喷火龙战利品 (简单) 能量元素x80&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td><center>中等</center></td>
+						<td><center>864000</center></td>
+						<td>75</td>
+						<td>喷火龙战利品 (简单) 能量元素x220</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td><center>困难</center></td>
+						<td><center>972000</center></td>
+						<td>100</td>
+						<td>喷火龙战利品 (简单) 能量元素x440</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>解锁物品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>监察者</center></td>
+						<td><center>简单</center></td>
+						<td><center>63360</center></td>
+						<td>60</td>
+						<td>等级上限+05</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td><center>中等</center></td>
+						<td><center>132480</center></td>
+						<td>80</td>
+						<td>等级上限+10</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td><center>困难</center></td>
+						<td><center>207360</center></td>
+						<td>100</td>
+						<td>等级上限+15</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之智慧</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之稳重</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>阿根廷巨鹰爪子x05</td>
+						<td>阿根廷巨鹰爪子x10</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>帝鳄皮肤x05</td>
+						<td>帝鳄皮肤x10</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>蜥脚类恐龙脊椎x05</td>
+						<td>蜥脚类恐龙脊椎x10</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰坦巨蟒毒液x05</td>
+						<td>泰坦巨蟒毒液x10</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td><div class="copy" onclick="copy(this,1)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,2)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,3)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>上古神器之残暴</td>
+						<td>上古神器之残暴</td>
+						<td>上古神器之残暴</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之吞噬</td>
+					</tr>				<tr>
+						<td><center>银背金刚</center></td>
+						<td>上古神器之团结</td>
+						<td>上古神器之团结</td>
+						<td>上古神器之团结</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>古巨蜥毒液x05</td>
+						<td>古巨蜥毒液x10</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>巨齿鲨牙齿x05</td>
+						<td>巨齿鲨牙齿x10</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>棘背龙背鳍x05</td>
+						<td>棘背龙背鳍x10</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>镰刀龙爪子x05</td>
+						<td>镰刀龙爪子x10</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>袋狮爪子x05</td>
+						<td>袋狮爪子x10</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td><div class="copy" onclick="copy(this,4)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,5)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,6)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之免疫</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>上古神器之天主</td>
+						<td>上古神器之天主</td>
+						<td>上古神器之天主</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之强壮</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之狡诈 (大)</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>南方巨兽龙心脏x01</td>
+						<td>南方巨兽龙心脏x02</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>异特龙大脑x05</td>
+						<td>异特龙大脑x10</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>龙王鲸脂肪x05</td>
+						<td>龙王鲸脂肪x10</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>托斯特巨鱿触手x05</td>
+						<td>托斯特巨鱿触手x10</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>羽暴龙肺x05</td>
+						<td>羽暴龙肺x10</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>霸王龙手臂x05</td>
+						<td>霸王龙手臂x15</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td><div class="copy" onclick="copy(this,7)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,8)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,9)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>监察者</center></td>
+						<td>简单育母蜘蛛战利品</td>
+						<td>中等育母蜘蛛战利品</td>
+						<td>困难育母蜘蛛战利品</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td>简单银背金刚战利品</td>
+						<td>中等银背金刚战利品</td>
+						<td>困难银背金刚战利品</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td>简单喷火龙战利品</td>
+						<td>中等喷火龙战利品</td>
+						<td>困难喷火龙战利品</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td>精英迅猛龙爪x01</td>
+						<td>精英迅猛龙爪x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td>精英牛龙手臂x01</td>
+						<td>精英牛龙手臂x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td>精英霸王龙牙齿x01</td>
+						<td>精英霸王龙牙齿x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td></td>
+						<td>精英巨齿鲨鳍x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td></td>
+						<td>精英苍龙牙齿x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td></td>
+						<td>精英托斯特巨鱿眼睛x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td></td>
+						<td></td>
+						<td>精英利兹鱼脂肪x01</td>
+					</tr>
+					<tr>
+						<td><center>监察者</center></td>
+						<td><div class="copy" onclick="copy(this,10)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,11)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,12)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>泰克地基</td>
+						<td>泰克地基</td>
+						<td>泰克地基</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>泰克三角地基</td>
+						<td>泰克三角地基</td>
+						<td>泰克三角地基</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>泰克三角天花板</td>
+						<td>泰克三角天花板</td>
+						<td>泰克三角天花板</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td>泰克三角屋顶</td>
+						<td>泰克三角屋顶</td>
+						<td>泰克三角屋顶</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克靴</td>
+						<td>泰克靴</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克墙</td>
+						<td>泰克墙</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克天花板</td>
+						<td>泰克天花板</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克柱子</td>
+						<td>泰克柱子</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克桥梁</td>
+						<td>泰克桥梁</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克栏杆</td>
+						<td>泰克栏杆</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克栅栏地基</td>
+						<td>泰克栅栏地基</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克左斜墙</td>
+						<td>泰克左斜墙</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克右斜墙</td>
+						<td>泰克右斜墙</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克侧斜屋顶</td>
+						<td>泰克侧斜屋顶</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克旋转楼梯</td>
+						<td>泰克旋转楼梯</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克梯子</td>
+						<td>泰克梯子</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td>泰克斜坡</td>
+						<td>泰克斜坡</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克头盔</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克苍龙鞍</td>
+					</tr>
+					<tr>
+						<td><center>育母蜘蛛</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克炮塔</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>泰克窗框</td>
+						<td>泰克窗框</td>
+						<td>泰克窗框</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>泰克窗门</td>
+						<td>泰克窗门</td>
+						<td>泰克窗门</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>泰克天窗框</td>
+						<td>泰克天窗框</td>
+						<td>泰克天窗框</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td>泰克天窗门</td>
+						<td>泰克天窗门</td>
+						<td>泰克天窗门</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克步枪</td>
+						<td>泰克步枪</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克门框</td>
+						<td>泰克门框</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克门</td>
+						<td>泰克门</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克恐龙门框</td>
+						<td>泰克恐龙门框</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克恐龙门</td>
+						<td>泰克恐龙门</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td></td>
+						<td>大型泰克墙</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克手雷</td>
+					</tr>
+					<tr>
+						<td><center>银背金刚</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克霸王龙鞍</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>泰克巨齿鲨鞍</td>
+						<td>泰克巨齿鲨鞍</td>
+						<td>泰克巨齿鲨鞍</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>泰克古神翼龙鞍</td>
+						<td>泰克古神翼龙鞍</td>
+						<td>泰克古神翼龙鞍</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>泰克巨兽门框</td>
+						<td>泰克巨兽门框</td>
+						<td>泰克巨兽门框</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td>泰克巨兽门</td>
+						<td>泰克巨兽门</td>
+						<td>泰克巨兽门</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克传送器</td>
+						<td>泰克传送器</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克力场护盾</td>
+						<td>泰克力场护盾</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克密封舱</td>
+						<td>泰克密封舱</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克双扇门框</td>
+						<td>泰克双扇门框</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克双扇门</td>
+						<td>泰克双扇门</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克楼梯</td>
+						<td>泰克楼梯</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td>泰克栅栏支架</td>
+						<td>泰克栅栏支架</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克胸甲</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克月池舱</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克传送门</td>
+					</tr>
+					<tr>
+						<td><center>喷火龙</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克克隆机</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map02">
+			<legend>焦土 (Scorched Earth)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td><center>简单</center></td>
+						<td><center>100000</center></td>
+						<td>55</td>
+						<td>狮身蝎尾兽战利品 (简单) 能量元素x38&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td><center>中等</center></td>
+						<td><center>130000</center></td>
+						<td>70</td>
+						<td>狮身蝎尾兽战利品 (中等) 能量元素x135</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td><center>困难</center></td>
+						<td><center>160000</center></td>
+						<td>95</td>
+						<td>狮身蝎尾兽战利品 (困难) 能量元素x285</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>上古神器之卫士</td>
+						<td>上古神器之卫士</td>
+						<td>上古神器之卫士</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>上古神器之岩壁</td>
+						<td>上古神器之岩壁</td>
+						<td>上古神器之岩壁</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>上古神器之灭世</td>
+						<td>上古神器之灭世</td>
+						<td>上古神器之灭世</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>火焰勾爪x02</td>
+						<td>火焰勾爪x10</td>
+						<td>火焰勾爪x20</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>闪电勾爪x02</td>
+						<td>闪电勾爪x10</td>
+						<td>闪电勾爪x20</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>剧毒勾爪x02</td>
+						<td>剧毒勾爪x10</td>
+						<td>剧毒勾爪x20</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td><div class="copy" onclick="copy(this,13)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,14)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,15)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td>泰克步枪</td>
+						<td>泰克步枪</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td>泰克盾</td>
+						<td>泰克盾</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td>泰克古神翼龙鞍</td>
+						<td>泰克古神翼龙鞍</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克手雷</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克霸王龙鞍</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克传送门</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克克隆机</td>
+					</tr>
+					<tr>
+						<td><center>狮身蝎尾兽</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克力场护盾</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map03">
+			<legend>畸变 (Aberration)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><center>简单</center></td>
+						<td><center>42000</center></td>
+						<td>60</td>
+						<td>罗克韦尔战利品 (简单)</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><center>中等</center></td>
+						<td><center>68500</center></td>
+						<td>75</td>
+						<td>罗克韦尔战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><center>困难</center></td>
+						<td><center>115000</center></td>
+						<td>100</td>
+						<td>罗克韦尔战利品 (困难)</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>上古神器之深渊</td>
+						<td>上古神器之深渊</td>
+						<td>上古神器之深渊</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>上古神器之暗影</td>
+						<td>上古神器之暗影</td>
+						<td>上古神器之暗影</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>上古神器之潜行</td>
+						<td>上古神器之潜行</td>
+						<td>上古神器之潜行</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>毒蜥鳞片x04</td>
+						<td>毒蜥鳞片x08</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>无名怪毒液x12</td>
+						<td>无名怪毒液x20</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>死神女王信息素x02</td>
+						<td>死神女王信息素x07</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>岩龙羽毛x02</td>
+						<td>岩龙羽毛x07</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>精英毒蜥牙齿x01</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>精英巨蟹怪鳌x01</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>精英死神国王倒钩x01</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><div class="copy" onclick="copy(this,16)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,17)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,18)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克睡眠舱</td>
+						<td>泰克睡眠舱</td>
+						<td>泰克睡眠舱</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克步枪</td>
+						<td>泰克步枪</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克头盔</td>
+						<td>泰克头盔</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克胸甲</td>
+						<td>泰克胸甲</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克靴</td>
+						<td>泰克靴</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克岩龙鞍</td>
+						<td>泰克岩龙鞍</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克狙击枪</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克霸王龙鞍</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克传送门</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克克隆机</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克力场护盾</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map04">
+			<legend>灭绝 (Extinction)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>血量</th>
+						<th>战利品</th>
+						<th>需要物品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>沙漠泰坦</center></td>
+						<td>250000</td>
+						<td>沙漠泰坦战利品 随机装备</td>
+						<td>火焰勾爪x10 帝鳄皮肤x10 腐化心脏x100 <div class="copy" onclick="copy(this,19)"><span>复制物品代码</span><span>已复制</span></td>
+					</tr>
+					<tr>
+						<td><center>冰原泰坦</center></td>
+						<td>350000</td>
+						<td>冰原泰坦战利品 随机装备</td>
+						<td>棘背龙背鳍x10 镰刀龙爪子x10 腐化心脏x100 <div class="copy" onclick="copy(this,20)"><span>复制物品代码</span><span>已复制</span></td>
+					</tr>
+					<tr>
+						<td><center>森林泰坦</center></td>
+						<td>400000</td>
+						<td>森林泰坦战利品 随机装备</td>
+						<td>蜥脚类恐龙脊椎x10 霸王龙手臂x10 腐化心脏x100 <div class="copy" onclick="copy(this,21)"><span>复制物品代码</span><span>已复制</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>战利品</th>
+						<th>解锁物品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td><center>简单</center></td>
+						<td>1500000</td>
+						<td>君王泰坦战利品 (简单) 随机装备</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td><center>中等</center></td>
+						<td>2000000</td>
+						<td>君王泰坦战利品 (中等) 随机装备</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td><center>困难</center></td>
+						<td>2500000</td>
+						<td>君王泰坦战利品 (困难) 随机装备</td>
+						<td><center>神人皮肤</center></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td>冰原泰坦战利品</td>
+						<td>冰原泰坦战利品</td>
+						<td>冰原泰坦战利品</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td>森林泰坦战利品</td>
+						<td>森林泰坦战利品</td>
+						<td>森林泰坦战利品</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td>沙漠泰坦战利品</td>
+						<td>沙漠泰坦战利品</td>
+						<td>沙漠泰坦战利品</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td>腐化心脏x150</td>
+						<td>君王泰坦战利品 (简单)</td>
+						<td>君王泰坦战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td>泰坦巨蟒毒液x10</td>
+						<td>腐化心脏x300</td>
+						<td>腐化心脏x300</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td>精英霸王龙牙齿x05</td>
+						<td>泰坦巨蟒毒液x20</td>
+						<td>泰坦巨蟒毒液x20</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td></td>
+						<td>精英霸王龙牙齿x10</td>
+						<td>精英霸王龙牙齿x10</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td></td>
+						<td></td>
+						<td>南方巨兽龙心脏x20</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td></td>
+						<td></td>
+						<td>棘背龙背鳍x20</td>
+					</tr>
+					<tr>
+						<td><center>君王泰坦</center></td>
+						<td><div class="copy" onclick="copy(this,22)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,23)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,24)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>沙漠泰坦</th>
+						<th>冰原泰坦</th>
+						<th>森林泰坦</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td>泰克靴</td>
+						<td>泰克头盔</td>
+						<td>泰克护手</td>
+					</tr>
+					<tr>
+						<td>泰克狙击枪</td>
+						<td>泰克胸甲</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td>泰克发电机</td>
+						<td>泰克步枪</td>
+						<td>泰克剑</td>
+					</tr>
+					<tr>
+						<td>泰克饲料槽</td>
+						<td>泰克古神翼龙鞍</td>
+						<td>泰克霸王龙鞍</td>
+					</tr>
+					<tr>
+						<td>泰克专项储物箱</td>
+						<td>泰克力场护盾</td>
+						<td>泰克传送门</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map05">
+			<legend>创世纪一 (Genesis Part 1)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td><center>简单</center></td>
+						<td>490000</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td><center>中等</center></td>
+						<td>686000</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td><center>困难</center></td>
+						<td>960400</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>前置任务数量</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td><center>简单</center></td>
+						<td>25000</td>
+						<td>58</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td><center>中等</center></td>
+						<td>60000</td>
+						<td>116</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td><center>困难</center></td>
+						<td>150000</td>
+						<td>168</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td>泰克传感器</td>
+						<td>泰克传感器</td>
+						<td>泰克传感器</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td></td>
+						<td>泰克手套</td>
+						<td>泰克手套</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td></td>
+						<td>泰克靴</td>
+						<td>泰克靴</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td></td>
+						<td>泰克头盔</td>
+						<td>泰克头盔</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克传送门</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克力场护盾</td>
+					</tr>
+					<tr>
+						<td><center>海洋之主莫德尔</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克榴弹发射器</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td>泰克光刃</td>
+						<td>泰克光刃</td>
+						<td>泰克光刃</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td>未组装的泰克悬浮艇</td>
+						<td>未组装的泰克悬浮艇</td>
+						<td>未组装的泰克悬浮艇</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td></td>
+						<td>泰克肩炮</td>
+						<td>泰克肩炮</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td></td>
+						<td>虚空鲸泰克鞍</td>
+						<td>虚空鲸泰克鞍</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克胸甲</td>
+					</tr>
+					<tr>
+						<td><center>腐化主宰</center></td>
+						<td></td>
+						<td></td>
+						<td>巡航导弹</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+
+
+		<fieldset id="map06">
+			<legend>创世纪二 (Genesis Part 2)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>飞升要求</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><center>简单</center></td>
+						<td>诱变剂x06 完成所有简单任务</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><center>中等</center></td>
+						<td>诱变剂x12 完成所有中等任务</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td><center>困难</center></td>
+						<td>诱变剂x24 完成所有困难任务</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克靴</td>
+						<td>泰克靴</td>
+						<td>泰克靴</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td>未组装Exo机甲</td>
+						<td>未组装Exo机甲</td>
+						<td>未组装Exo机甲</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克头盔</td>
+						<td>泰克头盔</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克胸甲</td>
+						<td>泰克胸甲</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克步枪</td>
+						<td>泰克步枪</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克炮塔</td>
+						<td>泰克炮塔</td>
+					</tr>
+					<tr>
+						<td><center>罗克韦尔</center></td>
+						<td></td>
+						<td>泰克传送门</td>
+						<td>泰克传送门</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map07">
+			<legend>中心岛 (Ths Center)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td><center>简单</center></td>
+						<td><center>356400 352000</center></td>
+						<td>70</td>
+						<td>蜘蛛和金刚战利品 (简单)</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td><center>中等</center></td>
+						<td><center>421200 400000</center></td>
+						<td>80</td>
+						<td>蜘蛛和金刚战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td><center>困难</center></td>
+						<td><center>486000 464000</center></td>
+						<td>90</td>
+						<td>蜘蛛和金刚战利品 (困难)</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之智慧</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之稳重</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td>上古神器之残暴</td>
+						<td>上古神器之残暴</td>
+						<td>上古神器之残暴</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之吞噬</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td>上古神器之团结</td>
+						<td>上古神器之团结</td>
+						<td>上古神器之团结</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>阿根廷巨鹰爪子x10</td>
+						<td>阿根廷巨鹰爪子x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>帝鳄皮肤x10</td>
+						<td>帝鳄皮肤x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>蜥脚类恐龙脊椎x10</td>
+						<td>蜥脚类恐龙脊椎x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>泰坦巨蟒毒液x10</td>
+						<td>泰坦巨蟒毒液x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>古巨蜥毒液x10</td>
+						<td>古巨蜥毒液x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>巨齿鲨牙齿x10</td>
+						<td>巨齿鲨牙齿x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>棘背龙背鳍x10</td>
+						<td>棘背龙背鳍x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>袋狮爪子x10</td>
+						<td>袋狮爪子x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>龙王鲸脂肪x10</td>
+						<td>龙王鲸脂肪x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td></td>
+						<td>托斯特巨鱿触手x10</td>
+						<td>托斯特巨鱿触手x25</td>
+					</tr>
+					<tr>
+						<td><center>蜘蛛和金刚</center></td>
+						<td><div class="copy" onclick="copy(this,25)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,26)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,27)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map08">
+			<legend>仙境 (Ragnarok)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td><center>简单</center></td>
+						<td><center>432000 100000</center></td>
+						<td>70</td>
+						<td>火龙和狮蝎战利品 (简单)</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td><center>中等</center></td>
+						<td><center>864000 130000</center></td>
+						<td>80</td>
+						<td>火龙和狮蝎战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td><center>困难</center></td>
+						<td><center>972000 160000</center></td>
+						<td>90</td>
+						<td>火龙和狮蝎战利品 (困难)</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之智慧</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之稳重</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之吞噬</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之团结</td>
+						<td>上古神器之团结</td>
+						<td>上古神器之团结</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之天主</td>
+						<td>上古神器之天主</td>
+						<td>上古神器之天主</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之强壮</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之免疫</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之狡诈 (小)</td>
+						<td>上古神器之狡诈 (小)</td>
+						<td>上古神器之狡诈 (小)</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之狡诈 (大)</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>阿根廷巨鹰爪子x10</td>
+						<td>阿根廷巨鹰爪子x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>帝鳄皮肤x10</td>
+						<td>帝鳄皮肤x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>蜥脚类恐龙脊椎x10</td>
+						<td>蜥脚类恐龙脊椎x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>泰坦巨蟒毒液x10</td>
+						<td>泰坦巨蟒毒液x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>古巨蜥毒液x10</td>
+						<td>古巨蜥毒液x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>巨齿鲨牙齿x10</td>
+						<td>巨齿鲨牙齿x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>棘背龙背鳍x10</td>
+						<td>棘背龙背鳍x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>袋狮爪子x10</td>
+						<td>袋狮爪子x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>龙王鲸脂肪x10</td>
+						<td>龙王鲸脂肪x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>托斯特巨鱿触手x10</td>
+						<td>托斯特巨鱿触手x25</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td><div class="copy" onclick="copy(this,28)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,29)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,30)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td>泰克灯</td>
+						<td>泰克灯</td>
+						<td>泰克灯</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td>泰克剑</td>
+						<td>泰克剑</td>
+					</tr>
+					<tr>
+						<td><center>火龙和狮蝎</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克盾</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map09">
+			<legend>瓦尔盖罗 (Valguero)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td><center>简单</center></td>
+						<td><center>432000 180000 100000</center></td>
+						<td>70</td>
+						<td>火龙，金刚和狮蝎战利品 (简单)</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td><center>中等</center></td>
+						<td><center>864000 396000 130000</center></td>
+						<td>80</td>
+						<td>火龙，金刚和狮蝎战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td><center>困难</center></td>
+						<td><center>972000 540000 160000</center></td>
+						<td>90</td>
+						<td>火龙，金刚和狮蝎战利品 (困难)</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之残暴</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>上古神器之团结</td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之岩壁</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>上古神器之天主</td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之灭世</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td></td>
+						<td></td>
+						<td>上古神器之卫士</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>异特龙大脑x05</td>
+						<td>异特龙大脑x10</td>
+						<td>异特龙大脑x15</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>阿根廷巨鹰爪子x05</td>
+						<td>阿根廷巨鹰爪子x08</td>
+						<td>阿根廷巨鹰爪子x15</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>帝鳄皮肤x05</td>
+						<td>帝鳄皮肤x08</td>
+						<td>帝鳄皮肤x10</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>泰坦巨蟒毒液x05</td>
+						<td>泰坦巨蟒毒液x05</td>
+						<td>泰坦巨蟒毒液x10</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td>蜥脚类恐龙脊椎x05</td>
+						<td>蜥脚类恐龙脊椎x08</td>
+						<td>南方巨兽龙心脏x02</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td></td>
+						<td>霸王龙手臂x10</td>
+						<td>霸王龙手臂x15</td>
+					</tr>
+					<tr>
+						<td><center>火龙，金刚和狮蝎</center></td>
+						<td><div class="copy" onclick="copy(this,31)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,32)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,33)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map10">
+			<legend>水晶岛 (Crystal Isles)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td><center>简单</center></td>
+						<td><center>400000</center></td>
+						<td>55</td>
+						<td>水晶飞龙女王战利品 (简单)</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td><center>中等</center></td>
+						<td><center>675000</center></td>
+						<td>75</td>
+						<td>水晶飞龙女王战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td><center>困难</center></td>
+						<td><center>950000</center></td>
+						<td>100</td>
+						<td>水晶飞龙女王战利品 (困难)</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>上古神器之稳重</td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之团结</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>上古神器之狡诈 (小)</td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之暗影</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>上古神器之天主</td>
+						<td>上古神器之吞噬</td>
+						<td>上古神器之潜行</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之迷失</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>上古神器之残暴</td>
+						<td>上古神器之智慧</td>
+						<td>上古神器之岩壁</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>上古神器之深渊</td>
+						<td>上古神器之灭世</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td></td>
+						<td>上古神器之卫士</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>原始水晶x10</td>
+						<td>原始水晶x20</td>
+						<td>原始水晶x30</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>水晶勾爪x05</td>
+						<td>水晶勾爪x10</td>
+						<td>水晶勾爪x15</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>精英水晶飞龙勾爪x01</td>
+						<td>精英水晶飞龙勾爪x03</td>
+						<td>精英水晶飞龙勾爪x05</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td><div class="copy" onclick="copy(this,34)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,35)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,36)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+						<td>泰克护手</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克地基</td>
+						<td>泰克地基</td>
+						<td>泰克地基</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克窗框</td>
+						<td>泰克窗框</td>
+						<td>泰克窗框</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克窗门</td>
+						<td>泰克窗门</td>
+						<td>泰克窗门</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克巨兽门框</td>
+						<td>泰克巨兽门框</td>
+						<td>泰克巨兽门框</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克巨兽门</td>
+						<td>泰克巨兽门</td>
+						<td>泰克巨兽门</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克步枪</td>
+						<td>泰克步枪</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克墙</td>
+						<td>泰克墙</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克屋顶</td>
+						<td>泰克屋顶</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克楼梯</td>
+						<td>泰克楼梯</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克双扇门框</td>
+						<td>泰克双扇门框</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克双扇门</td>
+						<td>泰克双扇门</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克栅栏地基</td>
+						<td>泰克栅栏地基</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克栅栏地基</td>
+						<td>泰克栅栏地基</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克密封舱</td>
+						<td>泰克密封舱</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克传送器</td>
+						<td>泰克传送器</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克力场护盾</td>
+						<td>泰克力场护盾</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克胸甲</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td></td>
+						<td>大型泰克墙</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克月池舱</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克克隆机</td>
+					</tr>
+					<tr>
+						<td><center>水晶飞龙女王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克传送门</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map11">
+			<legend>迷失岛 (Lost Island)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td><center>简单</center></td>
+						<td><center>375000</center></td>
+						<td>55</td>
+						<td>恐狒王战利品 (简单)</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td><center>中等</center></td>
+						<td><center>600000</center></td>
+						<td>75</td>
+						<td>恐狒王战利品 (中等)</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td><center>困难</center></td>
+						<td><center>825000</center></td>
+						<td>100</td>
+						<td>恐狒王战利品 (困难)</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+						<td>上古神器之猎手</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>上古神器之团结</td>
+						<td>上古神器之残暴</td>
+						<td>上古神器之吞噬</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>上古神器之天主</td>
+						<td>上古神器之强壮</td>
+						<td>上古神器之稳重</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>上古神器之狡诈 (大)</td>
+						<td>上古神器之免疫</td>
+						<td>上古神器之狡诈 (小)</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>帝鳄皮肤x05</td>
+						<td>巨齿鲨牙齿x05</td>
+						<td>巨齿鲨牙齿x10</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰坦巨蟒毒液x05</td>
+						<td>棘背龙背鳍x02</td>
+						<td>棘背龙背鳍x02</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>阿根廷巨鹰爪子x05</td>
+						<td>毒蜥鳞片x02</td>
+						<td>毒蜥鳞片x02</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>异特龙大脑x03</td>
+						<td>蜥脚类恐龙脊椎x05</td>
+						<td>霸王龙手臂x05</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>镰刀龙爪子x03</td>
+						<td>袋狮爪子x05</td>
+						<td>镰刀龙爪子x05</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>羽暴龙肺x02</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>古巨蜥毒液x10</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>托斯特巨鱿触手x02</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>南方巨兽龙心脏x01</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td><div class="copy" onclick="copy(this,37)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,38)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,39)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>解锁物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+						<td>泰克复制器</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+						<td>泰克护腿</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+						<td>泰克发电机</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克三角地基</td>
+						<td>泰克三角地基</td>
+						<td>泰克三角地基</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克三角屋顶</td>
+						<td>泰克三角屋顶</td>
+						<td>泰克三角屋顶</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克三角天花板</td>
+						<td>泰克三角天花板</td>
+						<td>泰克三角天花板</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克灯</td>
+						<td>泰克灯</td>
+						<td>泰克灯</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克巨兽门框</td>
+						<td>泰克巨兽门框</td>
+						<td>泰克巨兽门框</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克巨兽门</td>
+						<td>泰克巨兽门</td>
+						<td>泰克巨兽门</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+						<td>泰克饲料槽</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克靴</td>
+						<td>泰克靴</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克步枪</td>
+						<td>泰克步枪</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克剑</td>
+						<td>泰克剑</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克柱子</td>
+						<td>泰克柱子</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克斜坡</td>
+						<td>泰克斜坡</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克左斜墙</td>
+						<td>泰克左斜墙</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克右斜墙</td>
+						<td>泰克右斜墙</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克侧斜屋顶</td>
+						<td>泰克侧斜屋顶</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克旋转楼梯</td>
+						<td>泰克旋转楼梯</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克传送器</td>
+						<td>泰克传送器</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克力场护盾</td>
+						<td>泰克力场护盾</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td>泰克专项储物箱</td>
+						<td>泰克专项储物箱</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克头盔</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克盾</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>大型泰克墙</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克传送门</td>
+					</tr>
+					<tr>
+						<td><center>恐狒王</center></td>
+						<td></td>
+						<td></td>
+						<td>泰克苍龙鞍</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		
+		
+		<fieldset id="map12">
+			<legend>维京 (Fjordur)</legend>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>血量</th>
+						<th>符文石数量要求</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>贝拉</center></td>
+						<td><center>175000</center></td>
+						<td>30</td>
+						<td>50</td>
+						<td>贝拉遗物 随机装备</td>
+					</tr>
+					<tr>
+						<td><center>斯坦比恩</center></td>
+						<td><center>300000</center></td>
+						<td>30</td>
+						<td>50</td>
+						<td>斯坦比恩遗物 随机装备</td>
+					</tr>
+					<tr>
+						<td>哈蒂和斯科尔</td>
+						<td><center>250000 125000</center></td>
+						<td>30</td>
+						<td>50</td>
+						<td>哈蒂和斯科尔遗物 随机装备</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>属性信息</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>难度</th>
+						<th>血量</th>
+						<th>等级要求</th>
+						<th>战利品</th>
+						<th>解锁物品</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td><center>简单</center></td>
+						<td><center>385000</center></td>
+						<td>55</td>
+						<td>150级芬里尔 芬里尔巨狼旗帜</td>
+						<td><center>泰克剑</center></td>
+					</tr>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td><center>中等</center></td>
+						<td><center>750000</center></td>
+						<td>75</td>
+						<td>190级芬里尔 芬里尔巨狼旗帜</td>
+						<td><center>泰克剑</center></td>
+					</tr>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td><center>困难</center></td>
+						<td><center>1200000</center></td>
+						<td>100</td>
+						<td>雷神之锤皮肤 225级芬里尔 芬里尔巨狼旗帜</td>
+						<td><center>泰克剑</center></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>育母蜘蛛</th>
+						<th>银背金刚</th>
+						<th>喷火龙</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>贝拉遗物</td>
+						<td>斯坦比恩遗物</td>
+						<td>哈蒂和斯科尔遗物</td>
+					</tr>
+					<tr>
+						<td>其它参考孤岛</td>
+						<td>其它参考孤岛</td>
+						<td>其它参考孤岛</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="beautiful-table">
+				<caption>需要物品</caption>
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>简单</th>
+						<th>中等</th>
+						<th>困难</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td>育母蜘蛛战利品 (简单)</td>
+						<td>育母蜘蛛战利品 (中等)</td>
+						<td>育母蜘蛛战利品 (困难)</td>
+					</tr>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td>银背金刚战利品 (简单)</td>
+						<td>银背金刚战利品 (中等)</td>
+						<td>银背金刚战利品 (困难)</td>
+					</tr>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td>喷火龙战利品 (简单)</td>
+						<td>喷火龙战利品 (中等)</td>
+						<td>喷火龙战利品 (困难)</td>
+					</tr>
+					<tr>
+						<td><center>芬里尔巨狼</center></td>
+						<td><div class="copy" onclick="copy(this,40)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,41)"><span>复制物品代码</span><span>已复制</span></div></td>
+						<td><div class="copy" onclick="copy(this,42)"><span>复制物品代码</span><span>已复制</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+	</body>
+</html>

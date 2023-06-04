@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<style>
+			body {
+				overflow-x: hidden;
+				margin: 0;
+				padding: 50px 50px 80px 50px;
+			}
+			button span:nth-child(2),.b {
+				display: none;
+			}
+			*::-webkit-scrollbar {
+				width:  5px;
+				height: 5px;
+			}
+			*::-webkit-scrollbar-track {
+				border-radius:    5px;
+				background-color: #0F0F0;
+			}
+			*::-webkit-scrollbar-thumb {
+				border-radius:    5px;
+				background-color: #CCCCCC;
+			}
+			.setregion {
+				box-shadow: 0 0 10px 0px #000000;
+			}
+			.setcolor {
+				box-shadow: 0 0 10px 0px #778899;
+			}
+			.setcolor div span {
+				cursor: pointer;
+			}
+			.share {
+				padding: 0 0 30px 0;
+				background-color: #F4F6F9;
+				margin: 0 auto;
+			}
+			.share .margin {
+				position: relative;
+				font-size: 0;
+			}
+			.share .margin .collect_key {
+				background-color: #E8F0FE;
+				border: 1px solid #FF00FF;
+				border-radius: 5px;
+				margin-right: 5px;
+				padding: 0;
+				cursor: pointer;
+				width: 42px;
+				height: 42px;
+				vertical-align: top;
+				user-select: none;
+				display: inline-block;
+			}
+			.share .margin .collect_key svg {
+				width: 30px;
+				height: 30px;
+				position: relative;
+				top: 1px;
+			}
+			.share .margin .collect_key .press {
+				fill: #FF00FF;
+			}
+			.share .margin input {
+				width: calc(100% - 274px);
+				color: #5D5D5D;
+				padding: 0 10px;
+				height: 40px;
+				vertical-align: top;
+				line-height: 40px;
+				font-size: large;
+				border: 1px solid #FF00FF;
+				border-radius: 5px 0 0 5px;
+				background-color: #E8F0FE;
+			}
+			.share .margin .copy {
+				width:  100px;
+				height: 42px;
+				vertical-align: top;
+				line-height: 40px;
+				font-size: medium;
+				color: #FFFFFF;
+				cursor: pointer;
+				border: none;
+				border-radius: 0 5px 5px 0;
+				background-color: #FF00FF;
+			}
+			.share .margin .code {
+				display: inline-block;
+				margin-left: 5px;
+			}
+			.share .margin .code button {
+				width:  100px;
+				height: 42px;
+				line-height: 40px;
+				font-size: medium;
+				color: #FFFFFF;
+				cursor: pointer;
+				background-color: #FF00FF;
+				border: none;
+				border-radius: 5px;
+			}
+			.share .margin .code button:nth-child(2) {
+				display: none;
+			}
+			.share .margin .hover:hover {
+				animation-name: anniu;
+				animation-duration: 0.3s;
+				animation-timing-function: ease-in;
+				background-color: #cc00cc;
+			}
+			.collect {
+				font-size: 0;
+				user-select: none;
+			}
+			.collect .row {
+				margin: 5px 0;
+				height: 50px;
+				line-height: 50px;
+				border-radius: 5px;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid #eae9ef;
+			}
+			.collect .row:active {
+				background-color: #80ffff;
+			}
+			.collect .row .name {
+				font-size: 16px;
+				cursor: pointer;
+				padding: 0 15px;
+				margin-right: 5px;
+				width: calc(100% - 85px);
+				display: inline-block;
+			}
+			.collect .row .operate {
+				text-align: center;
+				display: inline-block;
+				cursor: pointer;
+				width:  50px;
+				height: 50px;
+			}
+			.collect .row .operate svg {
+				position: relative;
+				top: 6px;
+				right: 0;
+				width: 25px;
+				height: 25px;
+			}
+			.region {
+				width: calc(100% + 5px);
+				font-size: 0;
+				margin-bottom: 10px;
+				user-select: none;
+			}
+			.region div {
+				display: inline-block;
+				text-align: center;
+				width: 16.66%;
+			}
+			.region div span {
+				font-size: 16px;
+				display: block;
+				margin-right: 5px;
+				padding: 13px;
+				cursor: pointer;
+				color: #b9c2cb;
+				border-radius: 5px;
+			}
+			.color {
+				padding: 5px;
+				user-select: none;
+				font-size: 0;
+				background-color: #E8F0FE;
+				border: 1px solid #FF00FF;
+				border-radius: 5px;
+			}
+			.color div {
+				display: inline-block;
+				width: 10%;
+			}
+			.color div span {
+				border-radius: 5px;
+				display: block;
+				font-size: 16px;
+				height: 35px;
+				margin: 5px;
+			}
+			@keyframes anniu {
+				0%   {background-color: #ff00ff;}
+				100% {background-color: #cc00cc;}
+			}
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			var collect_html = "";
+			var color_html   = "";
+			var color_list   = {};
+			var code         = "";
+			var region = false;
+			var color0 = 1;
+			var color1 = 1;
+			var color2 = 1;
+			var color3 = 1;
+			var color4 = 1;
+			var color5 = 1;
+			
+			
+			function copyToClipboard(text)
+			{
+				const input = document.createElement('textarea');
+				input.value = text;
+				document.body.appendChild(input);
+				input.select();
+				document.execCommand('copy');
+				document.body.removeChild(input);
+			}
+			function copy(thiss,type)
+			{
+				if(type == 1) copyToClipboard($("#share").val());
+				if(type == 2) copyToClipboard(code);
+				
+				
+				$(thiss).find("span:nth-child(1)").hide();
+				$(thiss).find("span:nth-child(2)").show();
+				
+				
+				setTimeout(function (){
+					$(thiss).find("span:nth-child(2)").hide();
+					$(thiss).find("span:nth-child(1)").show();
+				},2000);
+			}
+			function collect(type,id)
+			{
+				if(type === 0)
+				{
+					console.log(window.parent.window.collectAPI($('#share').val(),true));
+					collect_list();
+				}
+				if(type === 1)
+				{
+					console.log(window.parent.window.collectAPI(id,false));
+					collect_list();
+				}
+				if(type === 2)
+				{
+					$('#share').val($(id).text());
+					color();
+				}
+				if(type === 3)
+				{
+					$(".collect_key svg path").toggleClass("press");
+					$(".share .margin .code button:nth-child(1)").toggle();
+					$(".share .margin .code button:nth-child(2)").toggle();
+					$(".a").toggle();
+					$(".b").toggle();
+				}
+			}
+			function collect_list()
+			{
+				$.getJSON("../../collect.json",function(result){
+					if(collect_html === "")
+					{
+						collect_html = $(".b .collect").html();
+						$(".b .collect .row").remove();
+					}
+					else
+					{
+						$(".b .collect .row").remove();
+					}
+					
+					
+					for(let key in result)
+					{
+						html = collect_html;
+						html = html.replace(/{id}/g, key);
+						html = html.replace(/{value}/g, result[key]);
+						
+						
+						$(".b .collect").append(html);
+					}
+				});
+			}
+			function color()
+			{
+				var str = $('#share').val();
+				var color = str.split(":");
+				if(str === "")
+				{
+					color = [];
+				}
+				
+				
+					color0 = parseInt(color[0]);
+					color1 = parseInt(color[1]);
+					color2 = parseInt(color[2]);
+					color3 = parseInt(color[3]);
+					color4 = parseInt(color[4]);
+					color5 = parseInt(color[5]);
+					
+					
+					if(!(color0 >= 1 && color0 <= 100)) color0 = 1;
+					if(!(color1 >= 1 && color1 <= 100)) color1 = 1;
+					if(!(color2 >= 1 && color2 <= 100)) color2 = 1;
+					if(!(color3 >= 1 && color3 <= 100)) color3 = 1;
+					if(!(color4 >= 1 && color4 <= 100)) color4 = 1;
+					if(!(color5 >= 1 && color5 <= 100)) color5 = 1;
+					
+					
+					Set0 = `cheat SetTargetDinoColor 0 ${color0}`;
+					Set1 = `cheat SetTargetDinoColor 1 ${color1}`;
+					Set2 = `cheat SetTargetDinoColor 2 ${color2}`;
+					Set3 = `cheat SetTargetDinoColor 3 ${color3}`;
+					Set4 = `cheat SetTargetDinoColor 4 ${color4}`;
+					Set5 = `cheat SetTargetDinoColor 5 ${color5}`;
+				
+				
+				
+				
+				$("#region0").css("background-color",color_list[color0-1]);
+				$("#region1").css("background-color",color_list[color1-1]);
+				$("#region2").css("background-color",color_list[color2-1]);
+				$("#region3").css("background-color",color_list[color3-1]);
+				$("#region4").css("background-color",color_list[color4-1]);
+				$("#region5").css("background-color",color_list[color5-1]);
+				code = `${Set0} | ${Set1} | ${Set2} | ${Set3} | ${Set4} | ${Set5}`;
+			}
+			
+			$(function (){
+				$.getJSON("json/color.json",function(result){
+					if(color_html === "")
+					{
+						color_list = result;
+						color_html = $(".color").html();
+						color();
+						collect_list();
+						$('#share').on('input', color);
+						$(".color div").remove();
+					}
+					else
+					{
+						$(".color div").remove();
+					}
+					
+					for(let key in result)
+					{
+						html = color_html;
+						html = html.replace(/{id}/g, Number(key)+1);
+						html = html.replace(/{color}/g, result[key]);
+						
+						
+						$(".color").append(html);
+					}
+					
+					
+					$(".region div span").click(function (){
+						if(region === false)
+						{
+							$(this).addClass("setregion");
+							$(".color").addClass("setcolor");
+							region = $(this).attr("region");
+						}
+						else
+						{
+							if(region === $(this).attr("region"))
+							{
+								$(this).removeClass("setregion");
+								$(".color").removeClass("setcolor");
+								region = false;
+							}
+							else
+							{
+								$(".region span").removeClass("setregion");
+								$(this).addClass("setregion");
+								region = $(this).attr("region");
+							}
+						}
+					});
+					$(".color div span").click(function (){
+						if(region)
+						{
+							if(region == 0) color0 = $(this).attr("color_id");
+							if(region == 1) color1 = $(this).attr("color_id");
+							if(region == 2) color2 = $(this).attr("color_id");
+							if(region == 3) color3 = $(this).attr("color_id");
+							if(region == 4) color4 = $(this).attr("color_id");
+							if(region == 5) color5 = $(this).attr("color_id");
+							
+							
+							$(".region span").removeClass("setregion");
+							$(".color").removeClass("setcolor");
+							$('#share').val(`${color0}:${color1}:${color2}:${color3}:${color4}:${color5}:备注`);
+							color();
+							region = false;
+						}
+					});
+					$(".color div span").hover(function(){
+						if(region)
+						{
+							if(region == 0) $("#region0").css("background-color",color_list[$(this).attr("color_id")-1]);
+							if(region == 1) $("#region1").css("background-color",color_list[$(this).attr("color_id")-1]);
+							if(region == 2) $("#region2").css("background-color",color_list[$(this).attr("color_id")-1]);
+							if(region == 3) $("#region3").css("background-color",color_list[$(this).attr("color_id")-1]);
+							if(region == 4) $("#region4").css("background-color",color_list[$(this).attr("color_id")-1]);
+							if(region == 5) $("#region5").css("background-color",color_list[$(this).attr("color_id")-1]);
+						}
+					}, function(){
+						if(region)
+						{
+							if(region == 0) $("#region0").css("background-color",color_list[color0-1]);
+							if(region == 1) $("#region1").css("background-color",color_list[color1-1]);
+							if(region == 2) $("#region2").css("background-color",color_list[color2-1]);
+							if(region == 3) $("#region3").css("background-color",color_list[color3-1]);
+							if(region == 4) $("#region4").css("background-color",color_list[color4-1]);
+							if(region == 5) $("#region5").css("background-color",color_list[color5-1]);
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="share">
+			<div class="margin">
+				<button class="collect_key" title="收藏" onclick="collect(3)"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1790"><path d="M509.606998 104.904235c-24.043602 0-45.922912 13.226233-56.177464 33.95637L356.189863 336.302419l-223.674269 32.54216c-22.983457 3.304256-42.100864 18.718317-49.481971 39.659255-7.381108 21.048385-1.812275 44.23241 14.431687 60.033281l163.916257 160.125931-38.011732 222.016513c-3.868097 22.408359 6.03239 44.819788 25.458835 57.94676 10.69662 7.116071 23.204491 10.784624 35.757388 10.784624 10.298554 0 20.663622-2.475378 30.055526-7.337105l194.987926-102.7205L704.662463 912.072815c9.369392 4.861728 19.712971 7.337105 29.990035 7.337105 12.57541 0 25.082258-3.668553 35.778878-10.784624 19.426445-13.126972 29.305443-35.538401 25.460882-57.94676l-38.012755-222.016513 163.937746-160.125931c16.22145-15.812127 21.810748-38.984896 14.408151-60.033281-7.402597-20.940938-26.51898-36.353976-49.503461-39.659255L663.04767 336.302419l-97.240695-197.441814C555.619962 118.131491 533.695626 104.904235 509.606998 104.904235L509.606998 104.904235z" fill="#5D5D5D" p-id="1791"></path></svg></button>
+				<input type="text" placeholder="Ctrl+V 粘贴" value="95:2:6:9:32:11:备注" id="share" />
+				<button class="copy hover" onclick="copy(this,1)">
+					<span>分享</span>
+					<span>已复制</span>
+				</button>
+				<div class="code">
+					<button class="hover" onclick="copy(this,2)">
+						<span>复制代码</span>
+						<span>已复制</span>
+					</button>
+					<button class="hover" onclick="collect(0)">保存</button>
+				</div>
+			</div>
+		</div>
+		<div class="a">
+			<div class="region">
+				<div><span region="0" id="region0">区域一</span></div>
+				<div><span region="1" id="region1">区域二</span></div>
+				<div><span region="2" id="region2">区域三</span></div>
+				<div><span region="3" id="region3">区域四</span></div>
+				<div><span region="4" id="region4">区域五</span></div>
+				<div><span region="5" id="region5">区域六</span></div>
+			</div>
+			<div class="color">
+				<div><span style="background-color:{color}" color_id="{id}"></span></div>
+			</div>
+		</div>
+		<div class="b">
+			<center><h1>收藏列表</h1></center>
+			<div class="collect">
+				<div class="row">
+					<div class="name" onclick="collect(2,this)">{value}</div>
+					<div class="operate" onclick="collect(1,{id})"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2447"><path d="M928.16 144H736V64a32 32 0 0 0-32-32H320a32 32 0 0 0-32 32v80H95.84a32 32 0 0 0 0 64H129.6l77.92 698.656A96 96 0 0 0 302.912 992h418.144a96.032 96.032 0 0 0 95.424-85.344L894.4 208h33.728a32 32 0 0 0 0.032-64zM352 96h320v48H352V96z m400.896 803.552a32 32 0 0 1-31.808 28.448H302.912a32 32 0 0 1-31.808-28.448L193.984 208h636.032l-77.12 691.552zM608 820.928a32 32 0 0 0 32-32V319.104a32 32 0 0 0-64 0v469.824a32 32 0 0 0 32 32zM432 820.928a32 32 0 0 0 32-32V319.104a32 32 0 0 0-64 0v469.824a32 32 0 0 0 32 32z" p-id="2448"></path></svg></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

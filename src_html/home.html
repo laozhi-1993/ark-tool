@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<style>
+			body {
+				margin: 0;
+				padding: 50px 50px 80px 50px;
+			}
+			*::-webkit-scrollbar {
+				width:  5px;
+				height: 5px;
+			}
+			*::-webkit-scrollbar-track {
+				border-radius:    5px;
+				background-color: #0F0F0;
+			}
+			*::-webkit-scrollbar-thumb {
+				border-radius:    5px;
+				background-color: #CCCCCC;
+			}
+			header {
+				font-size: 0;
+				user-select: none;
+			}
+			header .operate {
+				width: 170px;
+				height: 150px;
+				display: inline-block;
+				vertical-align: top;
+			}
+			header .operate a {
+				text-decoration: none;
+				color: inherit;
+				display: inline-block;
+				width:  100%;
+				height: 100%;
+			}
+			header .operate span {
+				display: block;
+				text-align: center;
+				height: 35px;
+				line-height: 35px;
+				font-size: 13px;
+				color: #FFFFFF;
+				cursor: pointer;
+				margin-right: 10px;
+				margin-bottom: 5px;
+				background-color: #FF00FF;
+				border: none;
+				border-radius: 5px;
+			}
+			header .operate span:first-child {
+				font-size: 22px;
+				height: 70px;
+				line-height: 70px;
+			}
+			header .operate span:active {
+				background-color: #856ea7;
+			}
+			header .text {
+				background-color: #4682b4;
+				border-radius: 5px;
+				display: inline-block;
+				padding: 15px;
+				color: #FFFFFF;
+				overflow: auto;
+				vertical-align: top;
+				width: calc(100% - 200px);
+				height: 120px;
+				font-size: 16px;
+			}
+			fieldset {
+				margin-top: 20px;
+				padding: 50px;
+				min-height: 300px;
+				user-select: none;
+				background-color: #FFFFFF;
+				border: 2px solid #4682b4;
+				border-radius: 10px;
+			}
+			fieldset legend {
+				font-size: x-large;
+				text-align: center;
+				padding: 0 5px;
+				color: #4682b4;
+			}
+			.server {
+				font-size: 0;
+			}
+			.server a {
+				text-decoration: none;
+				color: inherit;
+				display: inline-block;
+				width:  100%;
+				height: 100%;
+			}
+			.server .region {
+				width:  25%;
+				display: inline-block;
+			}
+			.server .region span {
+				display: block;
+				text-align: center;
+				height: 42px;
+				line-height: 40px;
+				font-size: medium;
+				color: #FFFFFF;
+				cursor: pointer;
+				margin: 5px 2.5px;
+				background-color: #8391a5;
+				border: none;
+				border-radius: 5px;
+			}
+			.server .region span:active {
+				background-color: #856ea7;
+			}
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			var rcons_html = "";
+			function open()
+			{
+				window.parent.window.openAPI('https://space.bilibili.com/25792030/');
+				return false;
+			}
+			function patch(thiss)
+			{
+				$.getJSON("http://127.0.0.1:8066/patch",function(result){
+					$("#patch").html(result.error);
+					
+					
+					setTimeout(function (){
+						$("#patch").html("安装汉化补丁");
+					},3000);
+				});
+			}
+			
+			
+			$(function (){
+				$.getJSON("../../server.json",function(result){
+					if(rcons_html === "")
+					{
+						rcons_html = $(".server").html();
+						$(".server").html("");
+					}
+					else
+					{
+						$(".server").html("");
+					}
+					
+					for(let value of result)
+					{
+						html = rcons_html;
+						html = html.replace(/{url}/g, value[0]);
+						html = html.replace(/{name}/g, value[1]);
+						
+						$(".server").append(html);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="operate">
+				<span><a href="steam://run/346110">启动游戏</a></span>
+				<span><a href="javascript:open()">打开作者主页</a></span>
+				<span><a href="javascript:patch()" id="patch">安装汉化补丁</a></span>
+			</div>
+			<div class="text">
+				<span>按(~)键可以自动将剪切板中的内容输入到控制台中并执行</span>
+				
+				
+				
+				
+			</div>
+		</header>
+		<main>
+			<fieldset>
+				<legend>方舟服务器列表</legend>
+				<div class="server">
+					<div class="region">
+						<span>
+							<a href="steam://connect/{url}">{name}</a>
+						</span>
+					</div>
+				</div>
+			</fieldset>
+		</main>
+	</body>
+</html>

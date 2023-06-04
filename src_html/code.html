@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<style>
+			body {
+				margin: 0;
+				padding: 50px 50px 80px 50px;
+			}
+			*::-webkit-scrollbar {
+				width:  5px;
+				height: 5px;
+			}
+			*::-webkit-scrollbar-track {
+				border-radius:    5px;
+				background-color: #0F0F0;
+			}
+			*::-webkit-scrollbar-thumb {
+				border-radius:    5px;
+				background-color: #CCCCCC;
+			}
+			.lookup {
+				padding-bottom: 30px;
+				background-color: #F4F6F9;
+				margin: 0 auto;
+			}
+			.lookup input {
+				width: calc(100% - 22px);
+				padding: 0 10px;
+				height: 40px;
+				line-height: 40px;
+				font-size: large;
+				font-weight: 300;
+				border: 1px solid #FF00FF;
+				border-radius: 5px;
+				background-color: #E8F0FE;
+			}
+			fieldset {
+				margin-bottom: 30px;
+				padding: 50px;
+				background-color: #FFFFFF;
+				border: 2px solid #4682b4;
+				border-radius: 10px;
+			}
+			fieldset legend {
+				font-size: x-large;
+				text-align: center;
+				padding: 0 5px;
+				color: #4682b4;
+			}
+			fieldset .input {
+				display: inline-block;
+				height: 34px;
+				line-height: 35px;
+				width: 100%;
+				margin: 5px 0;
+			}
+			fieldset .input input {
+				border-radius: 0 5px 5px 0;
+				vertical-align: top;
+				padding: 0 10px;
+				text-align: left;
+				height: 35px;
+				width: calc(100% - 154px);
+				font-size: 16px;
+				font-weight: 300;
+				color: #353242;
+				border: 1px solid #4682b4;
+			}
+			fieldset .input span {
+				border-radius: 5px 0 0 5px;
+				display: inline-block;
+				vertical-align: top;
+				font-size: 16px;
+				font-weight: 300;
+				width: 130px;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: #4682b4;
+				border: 1px solid #4682b4;
+			}
+			.rcons {
+				margin-top: 20px;
+				user-select: none;
+			}
+			.rcons .list {
+				padding: 50px;
+				padding-top: 60px;
+				background-color: #FFFFFF;
+				border-radius: 10px;
+				box-shadow: 0 0 5px 0px #a7f6f6;
+			}
+			.rcons .list table {
+				width: 100%;
+				height: 100%;
+				border-collapse: collapse;
+			}
+			.rcons .list table data {
+				display: none;
+			}
+			.rcons .list table td {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				padding: 0 20px;
+				height: 60px;
+			}
+			.rcons .list table td:last-child {
+				text-overflow: clip;
+				width: 35px;
+				text-align: right;
+			}
+			.rcons .list table td span:last-child {
+				display: none;
+			}
+			.rcons .list table thead {
+				color: #e541e5;
+				border-bottom: 1px solid #eae9ef;
+				background-color: #edf6f5;
+			}
+			.rcons .list table tbody {
+				color: #00808c;
+				cursor: pointer;
+			}
+			.rcons .list table tbody tr {
+				border-bottom: 1px solid #eae9ef;
+			}
+			.rcons .list table tbody tr:hover {
+				animation-name: tbody;
+				animation-duration: 0.3s;
+				animation-timing-function: ease-in;
+				background-color: #edf6f5;
+			}
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			var rcons_html = "";
+		
+		
+			function copyToClipboard(text)
+			{
+				const input = document.createElement('textarea');
+				input.value = text;
+				document.body.appendChild(input);
+				input.select();
+				document.execCommand('copy');
+				document.body.removeChild(input);
+			}
+			function copy(thiss,type)
+			{
+				if(type == 1)
+				{
+					copyToClipboard($(thiss).attr("code"));
+				}
+				if(type == 2)
+				{
+					copyToClipboard($(thiss).attr("code"));
+				}
+				
+				
+				$(thiss).find("span:nth-child(1)").hide();
+				$(thiss).find("span:nth-child(2)").show();
+				
+				
+				setTimeout(function (){
+					$(thiss).find("span:nth-child(2)").hide();
+					$(thiss).find("span:nth-child(1)").show();
+				},2000);
+			}
+			function rcons(data,search)
+			{
+				if(rcons_html === "")
+				{
+					rcons_html = $(".rcons .list tbody").html();
+					$(".rcons .list tbody tr").remove();
+				}
+				else
+				{
+					$(".rcons .list tbody tr").remove();
+				}
+				
+				for(let value of data)
+				{
+					text = value.code+value.explain;
+					if(search === undefined || text.toLowerCase().includes(search.toLowerCase()))
+					{
+						html = rcons_html;
+						html = html.replace(/{code}/g, value.code);
+						html = html.replace(/{explain}/g, value.explain);
+						
+						$(".rcons .list tbody").append(html);
+					}
+				}
+			}
+			function shortcut(thiss)
+			{
+				code1 = $("#F1").val();
+				code2 = $("#F2").val();
+				code3 = $("#F3").val();
+				code4 = $("#F4").val();
+				window.parent.window.shortcutAPI(code1,code2,code3,code4);
+			}
+
+
+			$(function (){
+				$.getJSON("../../shortcut.json",function(result){
+					$("#F1").val(result[0]);
+					$("#F2").val(result[1]);
+					$("#F3").val(result[2]);
+					$("#F4").val(result[3]);
+				});
+				$.getJSON("json/code.json",function(result){
+					rcons(result);
+					$('#length').text(Object.keys(result).length);
+					$('#search').on('input', function (){
+						rcons(result,$(this).val());
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="lookup">
+			<div class="margin">
+				<input type="text" placeholder="输入关键词筛选，输入及搜索！" id="search" />
+			</div>
+		</div>
+		<fieldset>
+			<legend>快捷代码</legend>
+			<div class="input"><span>快捷键F1</span><input type="text" placeholder="Ctrl+V 粘贴" onblur="shortcut(this)" id="F1" /></div>
+			<div class="input"><span>快捷键F2</span><input type="text" placeholder="Ctrl+V 粘贴" onblur="shortcut(this)" id="F2" /></div>
+			<div class="input"><span>快捷键F3</span><input type="text" placeholder="Ctrl+V 粘贴" onblur="shortcut(this)" id="F3" /></div>
+			<div class="input"><span>快捷键F4</span><input type="text" placeholder="Ctrl+V 粘贴" onblur="shortcut(this)" id="F4" /></div>
+		</fieldset>
+		<div class="rcons">
+			<div class="list">
+				<table>
+					<thead>
+						<tr>
+							<td>代码</td>
+							<td>说明</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr code="{code}" onclick="copy(this,1)">
+							<td>{code}</td>
+							<td><span>{explain}</span><span>已复制</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
