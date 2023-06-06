@@ -34,6 +34,7 @@
 	{"id":"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_Thatch.PrimalItemResource_Thatch'","name":"茅草","label":"资源","map":"孤岛"},
 	{"id":"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_Wood.PrimalItemResource_Wood'","name":"木头","label":"资源","map":"孤岛"},
 	{"id":"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_Wool.PrimalItemResource_Wool'","name":"羊毛","label":"资源","map":"孤岛"},
+	{"id":"Blueprint'/Game/PrimalEarth/Dinos/Achatina/PrimalItemResource_SnailPaste.PrimalItemResource_SnailPaste'","name":"玛瑙螺分泌物","label":"资源","map":"孤岛"},
 	{"id":"blueprint'/Game/PrimalEarth/Dinos/Rhyniognatha/Resin/PrimalItemResource_Resin.PrimalItemResource_Resin'","name":"黏脂","label":"资源","map":"孤岛"},
 	{"id":"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_ElementShard.PrimalItemResource_ElementShard'","name":"元素碎片","label":"资源","map":"孤岛"},
 	{"id":"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_Element.PrimalItemResource_Element'","name":"能量元素","label":"资源","map":"孤岛"},
