@@ -22,14 +22,7 @@
 		},
 		"win": {
 			"icon": "src/favicon.ico",
-			"target": [
-				{
-					"target": "nsis"
-				},
-				{
-					"target": "zip"
-				}
-			]
+			"target": ["nsis","zip"]
 		}
 	},
 	"scripts": {
