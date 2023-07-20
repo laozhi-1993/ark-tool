@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<style>
+			body {
+				margin: 0;
+				padding: 50px 50px 80px 50px;
+			}
+			*::-webkit-scrollbar {
+				width:  5px;
+				height: 5px;
+			}
+			*::-webkit-scrollbar-track {
+				border-radius:    5px;
+				background-color: #0F0F0;
+			}
+			*::-webkit-scrollbar-thumb {
+				border-radius:    5px;
+				background-color: #CCCCCC;
+			}
+			.attribute {
+				position: fixed;
+				top:   0;
+				right: 0;
+				z-index: 99;
+				display: none;
+				width:  100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.8);
+			}
+			.attribute .position {
+				position: absolute;
+				top: 120px;
+				z-index: 1;
+				width: 100%;
+			}
+			.attribute .data {
+				margin: 10px auto;
+				max-width:  540px;
+				background-color: #FFFFFF;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.attribute .data .close {
+				background-color: #008080;
+				border: none;
+				color: #FFFFFF;
+				cursor: pointer;
+				width:  100%;
+				height: 40px;
+			}
+			.attribute .data .close:hover {
+				background-color: #006666;
+				color: #FFFFFF;
+			}
+			.attribute .data .margin {
+				margin: 30px;
+				min-height: 150px;
+			}
+			.generate {
+				margin: 0 auto;
+				font-size: 0;
+			}
+			.generate .input {
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				width: 100%;
+				margin: 5px 0;
+			}
+			.generate .input input {
+				vertical-align: top;
+				padding: 0 10px;
+				text-align: left;
+				height: 30px;
+				width: calc(100% - 114px);
+				font-size: 16px;
+				border: 1px solid #FF00FF;
+			}
+			.generate .input span {
+				display: inline-block;
+				vertical-align: top;
+				font-size: 16px;
+				width: 80px;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: #FF00FF;
+				border: 1px solid #FF00FF;
+			}
+			.generate .button {
+				vertical-align: top;
+				height: 35px;
+				margin: 5px 0;
+			}
+			.generate .button div {
+				border: 1px solid #FF00FF;
+				border-radius: 5px;
+				background-color: #FF00FF;
+				display: inline-block;
+				font-size: 15px;
+				cursor: pointer;
+				color: #FFFFFF;
+				text-align: center;
+				width: calc(50% - 12.5px);
+				height: 35px;
+				line-height: 35px;
+			}
+			.generate .button div:hover {
+				background-color: #ba55d3;
+			}
+			.generate .button div:nth-child(1) {
+				margin-right: 5px;
+			}
+			.generate .button div:nth-child(2) {
+				margin-left: 5px;
+			}
+			.generate .button div span:nth-child(2) {
+				display: none;
+			}
+			.lookup {
+				padding-bottom: 30px;
+				background-color: #F4F6F9;
+				margin: 0 auto;
+			}
+			.lookup input {
+				width: calc(100% - 22px);
+				padding: 0 10px;
+				height: 40px;
+				line-height: 40px;
+				font-size: large;
+				font-weight: 300;
+				border: 1px solid #FF00FF;
+				border-radius: 5px;
+				background-color: #E8F0FE;
+			}
+			center h1 {
+				color: #FF00FF;
+			}
+			.rcons {
+				margin-top: 20px;
+				user-select: none;
+			}
+			.rcons .list {
+				padding: 50px;
+				padding-top: 60px;
+				background-color: #FFFFFF;
+				border-radius: 10px;
+				box-shadow: 0 0 5px 0px #a7f6f6;
+			}
+			.rcons .list table {
+				width: 100%;
+				height: 100%;
+				border-collapse: collapse;
+			}
+			.rcons .list table data {
+				display: none;
+			}
+			.rcons .list table td {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				padding: 0 20px;
+				height: 60px;
+			}
+			.rcons .list table td:last-child {
+				text-overflow: clip;
+				width: 35px;
+				text-align: right;
+			}
+			.rcons .list table thead {
+				color: #e541e5;
+				border-bottom: 1px solid #eae9ef;
+				background-color: #edf6f5;
+			}
+			.rcons .list table tbody {
+				color: #00808c;
+				cursor: pointer;
+			}
+			.rcons .list table tbody tr {
+				border-bottom: 1px solid #eae9ef;
+			}
+			.rcons .list table tbody tr:hover {
+				animation-name: tbody;
+				animation-duration: 0.3s;
+				animation-timing-function: ease-in;
+				background-color: #edf6f5;
+			}
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			var article_id = "";
+			var rcons_html = "";
+		
+		
+			function copyToClipboard(text)
+			{
+				const input = document.createElement('textarea');
+				input.value = text;
+				document.body.appendChild(input);
+				input.select();
+				document.execCommand('copy');
+				document.body.removeChild(input);
+			}
+			function copy(thiss,type)
+			{
+				if(type == 1)
+				{
+					number = $("#number").val();
+					quality = $("#quality").val();
+					copyToClipboard(`cheat giveitem "${article_id}" ${number} ${quality} 0`);
+				}
+				if(type == 2)
+				{
+					number = $("#number").val();
+					quality = $("#quality").val();
+					copyToClipboard(`cheat giveitem "${article_id}" ${number} ${quality} 1`);
+				}
+				
+				
+				$(thiss).find("span:nth-child(1)").hide();
+				$(thiss).find("span:nth-child(2)").show();
+				
+				
+				setTimeout(function (){
+					$(thiss).find("span:nth-child(2)").hide();
+					$(thiss).find("span:nth-child(1)").show();
+				},2000);
+			}
+			function rcons(data,search)
+			{
+				if(rcons_html === "")
+				{
+					rcons_html = $(".rcons .list tbody").html();
+					$(".rcons .list tbody tr").remove();
+				}
+				else
+				{
+					$(".rcons .list tbody tr").remove();
+				}
+				
+				for(let value of data)
+				{
+					text = value.name+value.label+value.map;
+					if(search === undefined || text.toLowerCase().includes(search.toLowerCase()))
+					{
+						html = rcons_html;
+						html = html.replace(/{id}/g, value.id);
+						html = html.replace(/{name}/g, value.name);
+						html = html.replace(/{label}/g, value.label);
+						html = html.replace(/{map}/g, value.map);
+						
+						$(".rcons .list tbody").append(html);
+					}
+				}
+			}
+			function attribute(thiss)
+			{
+				if(thiss)
+				{
+					$(".attribute").show();
+					$("body").css("overflow", "hidden");
+					$("#name").text($(thiss).attr("name"));
+					
+					
+					article_id = $(thiss).attr("article_id");
+				}
+				else
+				{
+					$('.attribute').hide();
+					$('body').css('overflow', 'auto');
+				}
+			}
+			
+			
+			$(function (){
+				$('.generate input').on('input', function (){
+					value = parseInt($(this).val());
+					
+					if(!isNaN(value))
+					{
+						$(this).val(value);
+					}
+					else
+					{
+						$(this).val("0");
+					}
+				});
+				
+				
+				$.getJSON("json/article.json",function(result){
+					rcons(result);
+					$('#length').text(Object.keys(result).length);
+					$('#search').on('input', function (){
+						rcons(result,$(this).val());
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="lookup">
+			<div class="margin">
+				<input type="text" placeholder="输入关键词筛选，输入及搜索！" id="search" />
+			</div>
+		</div>
+		<center>
+			<h1>方舟物品列表收录<span id="length">0</span>个物品</h1>
+		</center>
+		<div class="rcons">
+			<div class="list">
+				<table>
+					<thead>
+						<tr>
+							<td>物品名</td>
+							<td>标签</td>
+							<td>地图</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr article_id = "{id}" name="{name}" onclick="attribute(this)">
+							<td>{name}</td>
+							<td>{label}</td>
+							<td>{map}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="attribute">
+			<div class="position">
+				<div class="data">
+					<div class="margin">
+						<center>
+							<h2 id="name"></h2>
+						</center>
+						<div class="generate">
+							<div class="input">
+								<span>数量</span>
+								<input type="number" min="1" max="254" value="1" id="number" />
+							</div>
+							<div class="input">
+								<span>品质</span>
+								<input type="number" min="1" max="254" value="100" id="quality" />
+							</div>
+							<div class="button">
+								<div onclick="copy(this,1)">
+									<span>复制物品代码</span>
+									<span>已复制</span>
+								</div>
+								<div onclick="copy(this,2)">
+									<span>复制蓝图代码</span>
+									<span>已复制</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="close" onclick="attribute(false)">关闭</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
