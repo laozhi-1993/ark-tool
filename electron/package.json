@@ -27,8 +27,7 @@
 	},
 	"scripts": {
 		"electron": "npm install electron --save-dev",
-		"electron-builder": "npm install electron-builder --save-dev",
-		"pack": "npx electron-builder build",
+		"electron-builder": "npx electron-builder build",
 		"start": "chcp 65001 && electron ."
 	},
 	"devDependencies": {
